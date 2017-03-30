@@ -1,5 +1,6 @@
-var iotApp = angular.module('iotApp', []);
+var app = angular.module('iotApp', []);
 
-iotApp.controller('IotConnectController', function IotConnectController($scope){
-	
+app.controller('ReportsController', function ReportsController($scope) {
+    
+
 });

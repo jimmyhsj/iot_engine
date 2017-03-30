@@ -1,3 +1,5 @@
+<script type="text/javascript" src="/app/controllers/ReportsController.js"></script>
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script>
 
 @extends('layouts.angular')
 {{-- @extends('app') --}}
@@ -12,25 +14,8 @@
 
 </div>
 
-<div class="col-md-6 col-offset-md-3">
-	<div class="form-group row">
-		<label for="example-text-input" class="col-2 col-form-label">Time</label>
-		<div class="col-10">
-			<input class="form-control" type="text" id="time_stamp">
-		</div>
-	</div>
-	<div class="form-group row">
-		<label for="example-search-input" class="col-2 col-form-label">State</label>
-		<div class="col-10">
-			<input class="form-control" type="search" id="state">
-		</div>
-	</div>
-	<div class="form-group row">
-		<button class="btn btn-primary" onclick="iotWsConnect()" class="btn-primary">Send</button>
-	</div>
+<div ng-controller="ReportsController" class="" id="chronReport">
+	
 </div>
-
-
-
 
 @endsection

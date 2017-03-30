@@ -11,15 +11,22 @@
 |
 */
 
+// Auth::routes();
 
+Route::auth();
 
-Route::get('/', function () {return view('welcome');});
+Route::get('/', function () {
+	return VIEW('welcome');
+});
 
 Route::get('/logout',function(){
 	Auth::logout();
 	return redirect('/');
 });
 
+Route::get('/dashboard', 'DashboardController@index')->middleware('auth');
+Route::get('/iotconnect', 'DashboardController@iotconnect')->middleware('auth');
+
 Auth::routes();
 
-Route::get('/dashboard', 'DashboardController@index')->middleware('auth');
+Route::get('/home', 'HomeController@index');

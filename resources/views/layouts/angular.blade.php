@@ -11,6 +11,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+  <script type="text/javascript" src="/js/bower_components/angular/angular.min.js"></script>
+  <script type="text/javascript" src="/app/app.js"></script>
+
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   
   <style>
@@ -56,8 +59,8 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#"><i class="fa fa-tachometer fa-lg" aria-hidden="true"></i> Reports</a></li>
-          <li class="active"><a href="#"><i class="fa fa-cog fa-lg" aria-hidden="true"></i> AWS IoT Connectivity</a></li>
+          <li class="active"><a href="/dashboard"><i class="fa fa-tachometer fa-lg" aria-hidden="true"></i> Reports</a></li>
+          <li class="active"><a href="/iotconnect"><i class="fa fa-cog fa-lg" aria-hidden="true"></i> AWS IoT Connectivity</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           @if (!Auth::user())
@@ -76,23 +79,8 @@
         </div>
       </div>
     </nav>
-
     <div class="container">
       @yield('content')
     </div>
-    
   </body>
-
-  <script type="text/javascript" src="/js/bower_components/moment/min/moment.min.js"></script>
-  <script type="text/javascript" src="/js/bower_components/angular/angular.min.js"></script>
-  <script type="text/javascript" src="/js/bower_components/paho-mqtt-js/mqttws31.js"></script>
-  <script type="text/javascript" src="/js/bower_components/cryptojslib/rollups/sha256.js"></script>
-  <script type="text/javascript" src="/js/bower_components/cryptojslib/rollups/hmac-sha256.js"></script>
-
-  <!-- AngularJS Application Scripts -->
-  <script type="text/javascript" src="/js/bower_components/angular/angular.min.js"></script>
-  <script type="text/javascript" src="/app/app.js"></script>
-  <script type="text/javascript" src="/app/controllers/IotConnectController.js"></script> 
-  <!-- AWS IoT Connect -->
-  <script type="text/javascript" src="/js/iotws.js"></script>
 </html>
