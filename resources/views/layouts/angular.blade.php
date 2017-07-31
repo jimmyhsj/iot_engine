@@ -12,7 +12,10 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <script type="text/javascript" src="/js/bower_components/angular/angular.min.js"></script>
+  <script type="text/javascript" src="/js/bower_components/angular/angular-route.min.js"></script>
+  <script type="text/javascript" src="/js/bower_components/angular/angular-animate.min.js"></script>
   <script type="text/javascript" src="/app/app.js"></script>
+  <script type="text/javascript" src="/app/controllers/ReportsController.js"></script>
 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   
@@ -60,7 +63,7 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
           <li class="active"><a href="/dashboard"><i class="fa fa-tachometer fa-lg" aria-hidden="true"></i> Reports</a></li>
-          <li class="active"><a href="/iotconnect"><i class="fa fa-cog fa-lg" aria-hidden="true"></i> AWS IoT Connectivity</a></li>
+          {{-- <li class="active"><a href="/iotconnect"><i class="fa fa-cog fa-lg" aria-hidden="true"></i> AWS IoT Connectivity</a></li> --}}
         </ul>
         <ul class="nav navbar-nav navbar-right">
           @if (!Auth::user())
@@ -79,8 +82,10 @@
         </div>
       </div>
     </nav>
-    <div class="container">
-      @yield('content')
+    <div class="row">
+      <div class="col-md-10 col-xs-12 col-md-offset-1">
+        @yield('content')
+      </div>
     </div>
   </body>
-</html>
+  </html>

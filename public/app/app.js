@@ -1,6 +1,3 @@
-var app = angular.module('iotApp', []);
+'use strict';
+var app = angular.module('iotApp',[]);
 
-app.controller('ReportsController', function ReportsController($scope) {
-    
-
-});

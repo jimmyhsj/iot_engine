@@ -25,8 +25,11 @@ Route::get('/logout',function(){
 });
 
 Route::get('/dashboard', 'DashboardController@index')->middleware('auth');
+Route::get('/dashboard/google', 'DashboardController@googleChartReport')->middleware('auth');
 Route::get('/iotconnect', 'DashboardController@iotconnect')->middleware('auth');
 
-Auth::routes();
+
+// AWS Realted
+Route::get('/loadDyno', 'DynamoDbUtilController@loadDyno')->middleware('auth');
 
 Route::get('/home', 'HomeController@index');

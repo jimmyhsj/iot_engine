@@ -1,5 +1,4 @@
 function iotWsConnect() {
-
     if ("WebSocket" in window) {
         var requestUrl = genUrl();
         console.log('------------------');
@@ -8,16 +7,18 @@ function iotWsConnect() {
         var clientId = "adsfar2348fhdsfjklqpOEU38";
         var client = new Paho.MQTT.Client(requestUrl, clientId);
 
-        var topic = "poc_policy_1";
+        var topic = "iot_poc";
         // var message = '{"time": "'+ $("#time_stamp").val() +'", "state": "'+ $("#state").val() +'"}';
-        var time = $("#time_stamp").val().toString();
+        var start = $("#start_time").val().toString();
+        var end = $("#end_time").val().toString();
+        // var time = new Date(stringTime).getTime()/1000;
         var state = $("#state").val().toString();
-        var message = '{"time": "' + time + '", "state": "' + state + '"}';
+        var message = '{"start": "' + start + '", "end": "' + end + '", "state": "' + state + '"}';
 
         var connectOptions = {
             onSuccess: function () {
-                console.log('wss connection success');
-                console.log(client);
+                console.log('prod status wss connection success');
+                // console.log(client);
                 client.send(topic, message);
             },
             useSSL: true,
@@ -31,6 +32,38 @@ function iotWsConnect() {
     }
 }
 
+function iotCountWsConnect() {
+    if ("WebSocket" in window) {
+        var requestUrl = genUrl();
+        console.log('------------------');
+        console.log('requestUrl ' + requestUrl);
+
+        var clientId = "adsfar2348fhdsfjklqpOEU38";
+        var client = new Paho.MQTT.Client(requestUrl, clientId);
+
+        var topic = "iot_poc_production_count_policy";
+        // var message = '{"time": "'+ $("#time_stamp").val() +'", "state": "'+ $("#state").val() +'"}';
+        var time_stamp = $("#count_time").val().toString();
+        var count = $("#prod_count").val().toString();
+        // var time = new Date(stringTime).getTime()/1000;
+        var message = '{"timestamp": "' + time_stamp + '", "count": "' + count+ '"}';
+
+        var connectOptions = {
+            onSuccess: function () {
+                console.log('production count wss connection success');
+                // console.log(client);
+                client.send(topic, message);
+            },
+            useSSL: true,
+            timeout: 3,
+            mqttVersion: 4,
+            onFailure: function () {
+                console.log('wss connection failed');
+            }
+        };
+        client.connect(connectOptions);
+    }
+}
 
 
 function SigV4Utils() {}
@@ -60,12 +93,12 @@ function genUrl() {
     var amzdate = dateStamp + 'T' + time.format('HHmmss') + 'Z';
     var service = 'iotdevicegateway';
     var region = 'us-east-1';
-    var secretKey = '71hA/coZ7pqv4tneE83CVSnWQPQYdeTvyG5rs3pF';
-    var accessKey = 'AKIAIIGNXQDDNHJRYAFA';
+    var secretKey = '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';
+    var accessKey = 'AKIAIIGCE4RR3GFFFZFQ';
     var algorithm = 'AWS4-HMAC-SHA256';
     var method = 'GET';
     var canonicalUri = '/mqtt';
-    var host = 'a1hh5pweejj7gx.iot.us-east-1.amazonaws.com';
+    var host = 'a44xjg0z8if3m.iot.us-east-1.amazonaws.com';
 
     var credentialScope = dateStamp + '/' + region + '/' + service + '/' + 'aws4_request';
     var canonicalQuerystring = 'X-Amz-Algorithm=AWS4-HMAC-SHA256';
